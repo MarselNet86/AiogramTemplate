@@ -7,4 +7,4 @@ load_dotenv()
 
 
 class TgKeys:
-    TOKEN: Final = getenv.get('TOKEN', 'define me!')
+    TOKEN: Final = getenv("TOKEN", "define me!")
