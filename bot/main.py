@@ -23,6 +23,9 @@ async def start_bot():
     )
 
     bot = Bot(token=TgKeys.TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
-    dp = Dispatcher(storage=MemoryStorage())  # Убрали bot из конструктора Dispatcher
+    dp = Dispatcher(storage=MemoryStorage())
 
-    await dp.start_polling(bot, skip_updates=True, on_startup=__on_start_up)
+    await __on_start_up(dp)
+
+    await bot.delete_webhook(drop_pending_updates=True)
+    await dp.start_polling(bot, skip_updates=True)
