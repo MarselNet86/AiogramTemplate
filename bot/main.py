@@ -8,6 +8,7 @@ from bot.filters import register_all_filters
 from bot.misc import TgKeys
 from bot.handlers import register_all_handlers
 from bot.database.models import register_models
+from .middleware import AuthMiddleware
 
 
 async def __on_start_up(dp: Dispatcher) -> None:
